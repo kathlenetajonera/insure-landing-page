@@ -7,6 +7,10 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   overflow-x: hidden;
 }
@@ -612,5 +616,41 @@ ul li a {
     padding: 2rem;
     text-align: left;
   }
+}
+
+#scroll_top {
+  opacity: 0;
+  -webkit-transition: .2s ease;
+  transition: .2s ease;
+}
+
+#scroll_top.show {
+  width: 40px;
+  height: 40px;
+  display: block;
+  position: fixed;
+  right: 5%;
+  bottom: 8%;
+  background-color: #837d87;
+  opacity: .3;
+  border-radius: 50%;
+  z-index: 99;
+  cursor: pointer;
+}
+
+#scroll_top.show::after {
+  content: "\f077";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+#scroll_top.show:hover {
+  opacity: .8;
 }
 /*# sourceMappingURL=styles.css.map */

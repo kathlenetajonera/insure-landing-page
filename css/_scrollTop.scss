@@ -1,0 +1,33 @@
+#scroll_top {
+    opacity: 0;
+    transition: .2s ease;
+
+    &.show {
+        width: 40px;
+        height: 40px;
+        display: block;
+        position: fixed;
+        right: 5%;
+        bottom: 8%;
+        background-color: $darkGrayishViolet;
+        opacity: .3;
+        border-radius: 50%;
+        z-index: 99;
+        cursor: pointer;
+
+        &::after {
+            content: "\f077";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+}
