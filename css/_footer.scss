@@ -1,0 +1,72 @@
+.footer {
+    background-color: $veryLightGray;
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background-image: url("/images/bg-pattern-footer-mobile.svg");
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+    
+    .footer_header {
+
+        .social_media {
+            @include flexbox(center);
+
+            margin: 2rem 0;
+
+            .icon {
+                &:not(:last-child) {
+                    margin-right: 1rem;
+                }
+
+                &:hover svg path {
+                    fill: $veryDarkViolet;
+                }
+            }
+        }
+
+        //media query for footer_header & socmed - tablet
+        @include mediaQuery (tablet) {
+            @include flexbox(space-between);
+            margin: 2rem auto;
+
+            .social_media {
+                margin: 0;
+            }
+        }
+    }
+
+    .footer_menu {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+        .footer_menu_list {
+            p {
+                text-transform: uppercase;
+                color: $darkGrayishViolet;
+                font-size: $font-sm;
+                letter-spacing: 2px;
+                margin: 2rem 0;
+            }
+
+            .footer_links li {
+                margin: .8rem 0;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    //media query for footer - tablet
+    @include mediaQuery(tablet) {
+        background-image: url("/images/bg-pattern-footer-desktop.svg");
+        background-size: initial;
+        background-position: top left;
+        padding: 2rem;
+        text-align: left;
+    }
+}

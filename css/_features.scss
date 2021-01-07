@@ -1,0 +1,91 @@
+.features {
+    padding: 8rem 2rem;
+    text-align: center;
+
+    //media query for features - tablet
+    @include mediaQuery(tablet) {
+        text-align: left;
+        padding: 13rem 2rem 9rem;
+    }
+
+    hr {
+        width: 150px;
+        margin: 0 auto;
+
+        //media query for hr - tablet
+        @include mediaQuery(tablet) {
+            margin: 0;
+        }
+    }
+
+    .heading {
+        margin: 2rem 0;
+
+        ////media query for features heading - desktop
+        @include mediaQuery (desktop) {
+            font-size: $font-xl;
+        }
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 3rem;
+        padding: 2rem 0;
+
+        .card {
+            h2 {
+                font-family: $headingFont;
+                margin: 1rem 0;
+            }
+
+            p {
+                color: $darkGrayishViolet;
+            }
+        }
+    }
+
+    .banner {
+        padding: 3rem;
+        background-color: $darkViolet;
+        margin-top: 5rem;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+
+        .heading {
+            color: $veryLightGray;
+            font-size: 2rem;
+        }
+
+        &::after {
+            content: url("/images/bg-pattern-how-we-work-mobile.svg");
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -1;
+        }
+
+        //media query for banner - tablet
+        @include mediaQuery (tablet) {
+            @include flexbox(space-between);
+            
+            padding: 1.5rem 2rem;
+
+            .heading span {
+                display: block;
+            }
+
+            &::after {
+                content: url("/images/bg-pattern-how-we-work-desktop.svg");
+            }    
+        }
+
+        //media query for banner - desktop
+        @include mediaQuery (desktop) {
+            .heading {
+                font-size: 3rem;
+            }
+        }
+    }
+}

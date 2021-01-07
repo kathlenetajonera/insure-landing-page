@@ -1,0 +1,149 @@
+.header {
+    background-color: $white;
+    padding: 1.5rem;
+    position: relative;
+    z-index: 999;
+
+    nav {
+        @include flexbox(space-between);
+
+        .toggle-btn {
+            padding: .6rem .5rem;
+            border: 2px solid $veryDarkViolet;
+            cursor: pointer;
+
+            span {
+                display: block;
+                width: 18px;
+                height: 2px;
+                background-color: $veryDarkViolet;
+                transition: .2s ease;
+            
+                &:not(:last-child) {
+                    margin-bottom: 4px;
+                }
+
+                &:first-child {
+                    transform-origin: 3px 4px;
+                }
+
+                &:last-child {
+                    transform-origin: 1px -2px;
+                }
+            }
+
+            &.close_icon {
+                span:first-child {
+                    transform: rotate(45deg);
+                }
+
+                span:nth-child(2) {
+                    opacity: 0;
+                }
+
+                span:last-child {
+                    transform: rotate(-45deg);
+                }
+            }
+
+            @include mediaQuery(tablet) {
+                display: none;
+            }
+        }
+
+        a > img {
+            display: block;
+        }
+
+        .menu {
+            @include mediaQuery(mobile) {
+                display: none;
+
+                &.mobile_nav {
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    transform: translateY(100%);
+                    width: 100%;
+                    text-align: center;
+
+                    .menu_links {
+                        padding: 1.5rem;
+
+                        li {
+                            padding: 1.2rem 0;
+
+                            a {
+                                color: white;
+                                font-size: $font-normal;
+    
+                                &.button {
+                                    margin: 0;
+                                    display: block;
+
+                                    &:hover {
+                                        color: $veryDarkViolet;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .overlay {
+                        position: fixed;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        height: 90vh;
+                        background-color: $veryDarkViolet;
+                        background-image: url("/images/bg-pattern-mobile-nav.svg");
+                        background-position: bottom;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        z-index: -1;
+
+                        @media (min-width: 550px) and (max-height: 768px) {
+                            background-position-y: 200%;
+                        }
+                    }
+                }
+            }
+
+            @include mediaQuery(tablet) {
+                display: block;
+
+                .menu_links {
+                    @include flexbox(center);
+        
+                    li {
+                        &:not(:last-child) {
+                            padding: .6rem 1rem;
+                        }
+        
+                        a {
+                            color: $darkGrayishViolet;
+        
+                            &.button {
+                                color: $veryDarkViolet;
+                                border-color: $veryDarkViolet;
+                                margin: 0;
+                                padding: .5rem 1.5rem;
+
+                                &:hover {
+                                    background-color: $veryDarkViolet;
+                                    color: $white;
+                                }
+                            }
+
+                            &:hover {
+                                color: $veryDarkViolet;
+                            }
+                        }
+                    }
+                }
+            }
+        }      
+    }
+}
